@@ -8,6 +8,11 @@ namespace KebabExo
     {
         public string[] ingredients;
 
+        public Kebab(string[] ingredients)
+        {
+            this.ingredients = ingredients;
+        }
+
         public bool isVegeterian()
         {
             foreach (string ingredient in ingredients)
