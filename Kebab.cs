@@ -38,5 +38,49 @@ namespace KebabExo
             }
             return true;
         }
+
+        public Kebab sansOgnion()
+        {
+            foreach (string ingredient in ingredients)
+            {
+                if(ingredient.Equals("ognion"))
+                {
+                    
+                }
+            }
+            return this;
+        }
+
+        public Kebab supplementFromage()
+        {
+            bool hasCheese = false;
+            foreach (string ingredient in ingredients)
+            {
+                if(ingredient.Equals("fromage"))
+                {
+                    hasCheese = true;
+                }
+            }
+            
+            if(hasCheese)
+            {
+                ingredients[ingredients.Length - 1] = "fromage";
+                
+            }
+            return this;
+        }
+
+        public int countCheese()
+        {
+            int count = 0;
+            foreach (string ingredient in ingredients)
+            {
+                if(ingredient.Equals("fromage"))
+                {
+                    count++;
+                }
+            }
+            return count;
+        }
     }
 }
