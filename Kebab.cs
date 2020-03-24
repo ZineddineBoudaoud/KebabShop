@@ -17,7 +17,19 @@ namespace KebabExo
         {
             foreach (string ingredient in ingredients)
             {
-                if(ingredient.Equals("viande") || ingredient.Equals("poulet"))
+                if(ingredient.Equals("viande") || ingredient.Equals("poulet") || ingredient.Equals("poisson") || ingredient.Equals("crevette"))
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        public bool isPesceterian()
+        {
+            foreach (string ingredient in ingredients)
+            {
+                if (ingredient.Equals("viande") || ingredient.Equals("poulet"))
                 {
                     return false;
                 }
