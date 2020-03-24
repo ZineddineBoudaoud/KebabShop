@@ -7,10 +7,12 @@ namespace KebabExo
     class Kebab
     {
         public string[] ingredients;
+        public string[] sauces;
 
-        public Kebab(string[] ingredients)
+        public Kebab(string[] ingredients, string[] sauces)
         {
             this.ingredients = ingredients;
+            this.sauces = sauces;
         }
 
         public bool isVegeterian()
