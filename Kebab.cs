@@ -15,72 +15,106 @@ namespace KebabExo
             this.sauces = sauces;
         }
 
-        public bool isVegeterian()
+        public bool isVegeterian
         {
-            foreach (string ingredient in ingredients)
+            get
             {
-                if(ingredient.Equals("viande") || ingredient.Equals("poulet") || ingredient.Equals("poisson") || ingredient.Equals("crevette"))
+                foreach (string ingredient in ingredients)
                 {
-                    return false;
+                    if (ingredient.Equals("viande") || ingredient.Equals("poulet") || ingredient.Equals("poisson") || ingredient.Equals("crevette"))
+                    {
+                        return false;
+                    }
                 }
+                return true;
             }
-            return true;
         }
 
-        public bool isPesceterian()
+        public bool isPesceterian
         {
-            foreach (string ingredient in ingredients)
+            get
             {
-                if (ingredient.Equals("viande") || ingredient.Equals("poulet"))
+                foreach (string ingredient in ingredients)
                 {
-                    return false;
+                    if (ingredient.Equals("viande") || ingredient.Equals("poulet"))
+                    {
+                        return false;
+                    }
                 }
+                return true;
             }
-            return true;
         }
 
         public Kebab sansOgnion()
         {
-            foreach (string ingredient in ingredients)
+            bool hasOgnion = false;
+            int i;
+            for(i = 0; i < ingredients.Length; i++)
             {
-                if(ingredient.Equals("ognion"))
+                if (ingredients[i].Equals("ognion"))
                 {
-                    
+                    hasOgnion = true;
+                    break;
                 }
+            }
+
+            if(hasOgnion)
+            {
+                var tmp = new List<string>(ingredients);
+                tmp.RemoveAt(i);
+                ingredients = tmp.ToArray();
             }
             return this;
         }
 
-        public Kebab supplementFromage()
+        public Kebab GetsupplementFromage()
         {
             bool hasCheese = false;
             foreach (string ingredient in ingredients)
             {
-                if(ingredient.Equals("fromage"))
+                if (ingredient.Equals("fromage"))
                 {
                     hasCheese = true;
                 }
             }
-            
-            if(hasCheese)
+
+            if (hasCheese)
             {
                 ingredients[ingredients.Length - 1] = "fromage";
-                
+
             }
             return this;
         }
 
-        public int countCheese()
+        public int countCheese
         {
-            int count = 0;
-            foreach (string ingredient in ingredients)
+            get
             {
-                if(ingredient.Equals("fromage"))
+                int count = 0;
+                foreach (string ingredient in ingredients)
                 {
-                    count++;
+                    if (ingredient.Equals("fromage"))
+                    {
+                        count++;
+                    }
                 }
+                return count;
             }
-            return count;
+        }
+        public int countOnion
+        {
+            get
+            {
+                int count = 0;
+                foreach (string ingredient in ingredients)
+                {
+                    if (ingredient.Equals("ognion"))
+                    {
+                        count++;
+                    }
+                }
+                return count;
+            }
         }
     }
 }
