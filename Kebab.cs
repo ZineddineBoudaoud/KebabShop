@@ -6,7 +6,7 @@ namespace KebabExo
 {
     class Kebab
     {
-        string[] ingredients;
+        public string[] ingredients;
 
         public bool isVegeterian()
         {
